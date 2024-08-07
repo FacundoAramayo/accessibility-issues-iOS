@@ -103,6 +103,23 @@
         }
       }
     },
+    "financial_strategy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our financial strategy is to allocate 20% to savings, 20% to rent, 20% to monthly expenses, 20% to retirement and 20% to investments in the stock market."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuestra estrategia financiera consiste en destinar 20% a ahorros, 20% al alquiler, 20% a los gastos mensuales, 20% al retiro y 20% a inversiones en la bolsa."
+          }
+        }
+      }
+    },
     "go" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -116,6 +133,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ir"
+          }
+        }
+      }
+    },
+    "go_to_subscribe_form" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to subscribe form"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ir al formulario de suscripción"
           }
         }
       }

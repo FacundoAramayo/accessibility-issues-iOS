@@ -16,13 +16,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
             
         let homeViewController = HomeViewController()
-        homeViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("home_tab", comment: ""), image: UIImage(systemName: "house.fill"), tag: 0)
+        let homeTab = UITabBarItem(title: NSLocalizedString("home_tab", comment: ""), image: UIImage(systemName: "house.fill"), tag: 0)
+        homeTab.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .footnote)], for: .normal)
+        homeTab.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .footnote)], for: .selected)
+        homeViewController.tabBarItem = homeTab
             
         let dashboardViewController = DashboardViewController()
-        dashboardViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("dashboard_tab", comment: ""), image: UIImage(systemName: "chart.bar.fill"), tag: 1)
-            
+        let dashboardTab = UITabBarItem(title: NSLocalizedString("dashboard_tab", comment: ""), image: UIImage(systemName: "chart.bar.fill"), tag: 1)
+        dashboardTab.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .footnote)], for: .normal)
+        dashboardTab.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .footnote)], for: .selected)
+        dashboardViewController.tabBarItem = dashboardTab
+        
         let notificationsViewController = NotificationsViewController()
-        notificationsViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("notifications_tab", comment: ""), image: UIImage(systemName: "bell.fill"), tag: 2)
+        let notificationsTab = UITabBarItem(title: NSLocalizedString("notifications_tab", comment: ""), image: UIImage(systemName: "bell.fill"), tag: 2)
+        notificationsTab.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .footnote)], for: .normal)
+        notificationsTab.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .footnote)], for: .selected)
+        notificationsViewController.tabBarItem = notificationsTab
             
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [homeViewController, dashboardViewController, notificationsViewController]

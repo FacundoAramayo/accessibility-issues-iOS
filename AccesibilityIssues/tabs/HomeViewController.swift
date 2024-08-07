@@ -17,29 +17,34 @@ class HomeViewController: UIViewController {
     private func setupUI() {
         let titleLabel = UILabel()
         titleLabel.text = NSLocalizedString("welcome_to_finance_app", comment: "")
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let subtitleLabel = UILabel()
         subtitleLabel.text = NSLocalizedString("your_financial_companion", comment: "")
-        subtitleLabel.font = UIFont.systemFont(ofSize: 16)
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 2
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let imageView = UIImageView(image: UIImage(named: "finance"))
+        imageView.accessibilityLabel = NSLocalizedString("financial_strategy", comment: "")
+        imageView.isAccessibilityElement = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         let longTextLabel = UILabel()
         longTextLabel.text = String(format: NSLocalizedString("terms_and_conditions", comment: ""), "15%")
-        longTextLabel.textColor = .lightGray
+        longTextLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        longTextLabel.textColor = .gray
         longTextLabel.numberOfLines = 0
         longTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let actionButton = UIButton(type: .system)
         actionButton.setTitle(NSLocalizedString("go", comment: ""), for: .normal)
+        actionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        actionButton.accessibilityLabel = NSLocalizedString("go_to_subscribe_form", comment: "")
         actionButton.addTarget(self, action: #selector(goToForm), for: .touchUpInside)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         
