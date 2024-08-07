@@ -17,18 +17,20 @@ class FormViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupForm()
+        setupNavigationBar()
     }
     
     private func setupForm() {
         let titleLabel = UILabel()
         titleLabel.text = NSLocalizedString("subscribe_to_get_discounts", comment: "")
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let subtitleLabel = UILabel()
         subtitleLabel.text = NSLocalizedString("complete_the_form", comment: "")
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 2
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -44,8 +46,11 @@ class FormViewController: UIViewController {
         view.addSubview(stackView)
         
         nameTextField.placeholder = NSLocalizedString("name", comment: "")
+        nameTextField.font = UIFont.preferredFont(forTextStyle: .body)
         emailTextField.placeholder = NSLocalizedString("email", comment: "")
+        emailTextField.font = UIFont.preferredFont(forTextStyle: .body)
         passwordTextField.placeholder = NSLocalizedString("password", comment: "")
+        passwordTextField.font = UIFont.preferredFont(forTextStyle: .body)
         passwordTextField.isSecureTextEntry = true
         
         NSLayoutConstraint.activate([
@@ -65,6 +70,7 @@ class FormViewController: UIViewController {
         
         let submitButton = UIButton(type: .system)
         submitButton.setTitle(NSLocalizedString("submit", comment: ""), for: .normal)
+        submitButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         submitButton.addTarget(self, action: #selector(submitForm), for: .touchUpInside)
         
         view.addSubview(submitButton)
@@ -75,6 +81,13 @@ class FormViewController: UIViewController {
             submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
+    
+    private func setupNavigationBar() {
+            title = NSLocalizedString("subscribe_form", comment: "")
+            
+            let backButton = UIBarButtonItem(title: NSLocalizedString("back", comment: ""), style: .plain, target: self, action: #selector(goBack))
+            navigationItem.leftBarButtonItem = backButton
+        }
     
     @objc private func submitForm() {
         // Handle form submission
