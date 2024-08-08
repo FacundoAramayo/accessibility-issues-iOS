@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         
         let imageView = UIImageView(image: UIImage(named: "finance"))
         imageView.accessibilityLabel = NSLocalizedString("financial_strategy", comment: "")
+        imageView.accessibilityTraits = UIAccessibilityTraits.none
         imageView.isAccessibilityElement = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

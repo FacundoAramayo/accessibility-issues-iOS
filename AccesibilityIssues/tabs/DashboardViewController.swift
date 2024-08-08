@@ -31,6 +31,7 @@ class DashboardViewController: UIViewController {
         
         let chartImageView = UIImageView(image: UIImage(named: "chart_save"))
         chartImageView.accessibilityLabel = NSLocalizedString("save_money_now", comment: "")
+        chartImageView.accessibilityTraits = UIAccessibilityTraits.none
         chartImageView.isAccessibilityElement = true
         chartImageView.translatesAutoresizingMaskIntoConstraints = false
         
