@@ -17,18 +17,21 @@ class DashboardViewController: UIViewController {
     private func setupUI() {
         let titleLabel = UILabel()
         titleLabel.text = NSLocalizedString("dashboard_tab", comment: "")
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
     
         let subtitleLabel = UILabel()
         subtitleLabel.text = NSLocalizedString("your_status", comment: "")
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 2
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let chartImageView = UIImageView(image: UIImage(named: "chart_save"))
+        chartImageView.accessibilityLabel = NSLocalizedString("save_money_now", comment: "")
+        chartImageView.isAccessibilityElement = true
         chartImageView.translatesAutoresizingMaskIntoConstraints = false
         
         let iconImageView = UIImageView(image: UIImage(named: "discount"))
@@ -36,17 +39,22 @@ class DashboardViewController: UIViewController {
                 
         let iconTextLabel = UILabel()
         iconTextLabel.text = NSLocalizedString("discount", comment: "")
-        iconTextLabel.font = UIFont.systemFont(ofSize: 16)
+        iconTextLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        iconTextLabel.isAccessibilityElement = false
         iconTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let iconTextStackView = UIStackView(arrangedSubviews: [iconImageView, iconTextLabel])
         iconTextStackView.axis = .horizontal
         iconTextStackView.spacing = 8
         iconTextStackView.alignment = .center
+        iconTextStackView.isAccessibilityElement = true
+        iconTextStackView.accessibilityLabel = String(format: NSLocalizedString("param_discount", comment: ""), "15%")
         iconTextStackView.translatesAutoresizingMaskIntoConstraints = false
         
         let actionButton = UIButton(type: .system)
         actionButton.setTitle(NSLocalizedString("go", comment: ""), for: .normal)
+        actionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        actionButton.accessibilityLabel = NSLocalizedString("go_to_subscribe_form", comment: "")
         actionButton.addTarget(self, action: #selector(goToForm), for: .touchUpInside)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
     

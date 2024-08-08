@@ -222,6 +222,23 @@
         }
       }
     },
+    "param_discount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ discount!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡%@ de descuento!"
+          }
+        }
+      }
+    },
     "password" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -269,6 +286,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Refiere a un amigo y participa por $20 de descuento en tu suscripción."
+          }
+        }
+      }
+    },
+    "save_money_now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save 15% now!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Ahorra un 15%!"
           }
         }
       }
