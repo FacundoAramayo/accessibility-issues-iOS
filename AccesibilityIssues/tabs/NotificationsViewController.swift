@@ -26,13 +26,14 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
     private func setupUI() {
         let titleLabel = UILabel()
         titleLabel.text = NSLocalizedString("notifications_tab", comment: "")
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let subtitleLabel = UILabel()
         subtitleLabel.text = NSLocalizedString("check_your_messages", comment: "")
+        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 2
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -73,13 +74,16 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
         
         let titleLabel = UILabel()
         titleLabel.text = notification.0
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        titleLabel.numberOfLines = 3
         
         let dateLabel = UILabel()
         dateLabel.text = notification.1
+        dateLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         
         let contentLabel = UILabel()
         contentLabel.text = notification.2
+        contentLabel.font = UIFont.preferredFont(forTextStyle: .subheadline)
         contentLabel.numberOfLines = 3
         
         cell.contentView.addSubview(titleLabel)
@@ -90,17 +94,26 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
         
-       
+        // Custom accessibility label
+        let customLabel =
+        String(format: NSLocalizedString("notification_of", comment: ""), notification.1) + " " + notification.0 + " " + notification.2
+        titleLabel.isAccessibilityElement = false
+        dateLabel.isAccessibilityElement = false
+        contentLabel.isAccessibilityElement = false
+        cell.accessibilityLabel = customLabel
         
         if notification.3 {
             let actionButton = UIButton(type: .system)
             actionButton.setTitle(NSLocalizedString("go", comment: ""), for: .normal)
             actionButton.addTarget(self, action: #selector(goToForm), for: .touchUpInside)
+            actionButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+            actionButton.accessibilityLabel = NSLocalizedString("go_to_subscribe_form", comment: "")
             cell.contentView.addSubview(actionButton)
             actionButton.translatesAutoresizingMaskIntoConstraints = false
             
             let constraints = [
                 titleLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10),
+                titleLabel.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
                 titleLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10),
                 dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
                 dateLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10),
@@ -116,6 +129,7 @@ class NotificationsViewController: UIViewController, UITableViewDataSource, UITa
         } else {
             let constraints = [
                 titleLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10),
+                titleLabel.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
                 titleLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10),
                 dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
                 dateLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10),

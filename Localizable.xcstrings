@@ -205,6 +205,23 @@
         }
       }
     },
+    "notification_of" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification of %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificación del %@."
+          }
+        }
+      }
+    },
     "notifications_tab" : {
       "extractionState" : "manual",
       "localizations" : {
